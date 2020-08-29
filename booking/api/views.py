@@ -26,4 +26,9 @@ class MovieViewSets(viewsets.ModelViewSet):
 class BookingViewSets(viewsets.ModelViewSet):
     queryset = BookingShowModel.objects.all()
     serializer_class = BookingSerializer
-    # permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated,)
+
+
+# class Tickets(generics.ReteriveAPIView):
+#     permissions_classes = [permissions.IsAuthenticated]
+#     serializer_class = 

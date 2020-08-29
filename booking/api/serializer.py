@@ -56,13 +56,12 @@ class BookingSerializer(serializers.ModelSerializer):
         return ticket
 
     def update(self, instance, validated_data):
-
         instance.booking_phone_number = validated_data.get(
             'booking_phone_number', instance.booking_phone_number)
         instance.time = validated_data.get('time', instance.time)
         instance.date = validated_data.get('date', instance.date)
         instance.issued_date = validated_data.get(
-            'issued_data', instance.issued_date)
+            'issued_date', instance.issued_date)
         instance.issued_time = validated_data.get(
             'issued_time', instance.issued_time)
         instance.expired = validated_data.get('expired', instance.expired)

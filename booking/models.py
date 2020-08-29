@@ -2,6 +2,7 @@ import datetime, random, uuid
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.utils.timezone import now
 
 
 from phone_field import PhoneField
@@ -35,8 +36,8 @@ class BookingShowModel(models.Model):
     date = models.DateField()
     time = models.TimeField()
     expired = models.BooleanField(default=False)
-    issued_date = models.DateField()
-    issued_time = models.TimeField()
+    issued_date = models.DateField(default=now)
+    issued_time = models.TimeField(default=now)
     updated = models.DateTimeField(auto_now=True)
     
 
