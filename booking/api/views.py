@@ -1,5 +1,7 @@
 from rest_framework import generics, permissions, viewsets
 
+from django.shortcuts import get_object_or_404
+
 from booking.models import (
     TheatreModel,
     MovieModel,
@@ -29,6 +31,11 @@ class BookingViewSets(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticated,)
 
 
-# class Tickets(generics.ReteriveAPIView):
-#     permissions_classes = [permissions.IsAuthenticated]
-#     serializer_class = 
+class TicketsListAPI(generics.RetrieveAPIView):
+    permissions_classes = [permissions.IsAuthenticated]
+    serializer_class = BookingSerializer
+
+    def get_object(self):
+        print(self.request.data)
+        obj = get_object_or_404(BookingShowModel, issued_time=self.request.data['issued_time'])
+        return obj
