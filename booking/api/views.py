@@ -1,4 +1,5 @@
 from rest_framework import generics, permissions, viewsets
+from rest_framework.throttling import UserRateThrottle
 
 from django.shortcuts import get_object_or_404
 
@@ -29,6 +30,7 @@ class BookingViewSets(viewsets.ModelViewSet):
     queryset = BookingShowModel.objects.all()
     serializer_class = BookingSerializer
     permission_classes = (permissions.IsAuthenticated,)
+    throttle_classes = [UserRateThrottle]
 
 
 class TicketsListAPI(generics.RetrieveAPIView):
@@ -39,3 +41,4 @@ class TicketsListAPI(generics.RetrieveAPIView):
         print(self.request.data)
         obj = get_object_or_404(BookingShowModel, issued_time=self.request.data['issued_time'])
         return obj
+
