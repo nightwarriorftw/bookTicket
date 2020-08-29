@@ -26,7 +26,4 @@ class MovieViewSets(viewsets.ModelViewSet):
 class BookingViewSets(viewsets.ModelViewSet):
     queryset = BookingShowModel.objects.all()
     serializer_class = BookingSerializer
-    permission_classes = (permissions.IsAuthenticated,)
-
-    def get_queryset(self):
-        return 
+    # permission_classes = (permissions.IsAuthenticated,)

@@ -35,7 +35,10 @@ class BookingShowModel(models.Model):
     date = models.DateField()
     time = models.TimeField()
     expired = models.BooleanField(default=False)
+    issued_date = models.DateField()
+    issued_time = models.TimeField()
     updated = models.DateTimeField(auto_now=True)
+    
 
     def __str__(self):
         return str(self.id)+'-'+str(self.user.username)
