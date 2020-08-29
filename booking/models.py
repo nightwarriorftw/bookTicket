@@ -46,6 +46,6 @@ class BookingModel(models.Model):
     expired = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self.user.username)+'-'+str(self.show.movie)+'-'+str(self.id)
+        return str(self.id)
 
 # more features - seating model,
