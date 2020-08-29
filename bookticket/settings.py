@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     #third parties
     'rest_framework',
     'knox',
+    'phone_field',
 ]
 
 MIDDLEWARE = [

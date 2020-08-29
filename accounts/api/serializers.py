@@ -24,8 +24,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
-# No model serializer because we are not dealing with models saving
-
 
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
