@@ -27,25 +27,17 @@ class MovieModel(models.Model):
         return self.name
 
 
-class ShowModel(models.Model):
+class BookingShowModel(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    booking_phone_number = PhoneField(help_text='Booker phone number')
     theatre = models.ForeignKey(TheatreModel, on_delete=models.CASCADE)
     movie = models.ForeignKey(MovieModel, on_delete=models.CASCADE)
     date = models.DateField()
     time = models.TimeField()
-
-    def __str__(self):
-        return str(self.movie)+'-'+str(self.theatre)+'-'+str(self.date)+'-'+str(self.time)
-
-
-class BookingModel(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    booking_phone_number = PhoneField(help_text='Booker phone number')
-    time = models.DateTimeField(auto_now_add=True)
-    updated_time = models.DateTimeField(auto_now=True)
-    show = models.ForeignKey(ShowModel, on_delete=models.CASCADE)
     expired = models.BooleanField(default=False)
+    updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return str(self.id)
+        return str(self.id)+'-'+str(self.user.username)
 
-# more features - seating model,
+# more features - seating model, Booking show model can be broken into two more models(show booking and booking model)

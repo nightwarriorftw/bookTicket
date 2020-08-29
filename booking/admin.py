@@ -2,11 +2,9 @@ from django.contrib import admin
 from .models import (
     MovieModel,
     TheatreModel,
-    ShowModel,
-    BookingModel
+    BookingShowModel
 )
 
 admin.site.register(TheatreModel)
 admin.site.register(MovieModel)
-admin.site.register(ShowModel)
-admin.site.register(BookingModel)
+admin.site.register(BookingShowModel)

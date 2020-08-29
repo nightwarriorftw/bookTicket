@@ -47,6 +47,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'knox.auth.TokenAuthentication',
+    ),
+}
+
+
 ROOT_URLCONF = 'bookticket.urls'
 
 TEMPLATES = [

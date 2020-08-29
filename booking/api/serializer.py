@@ -5,8 +5,7 @@ from django.contrib.auth.models import User
 from booking.models import (
     TheatreModel,
     MovieModel,
-    ShowModel,
-    BookingModel
+    BookingShowModel
 )
 
 
@@ -32,20 +31,23 @@ class MovieSerializer(serializers.ModelSerializer):
                   'language', 'director', 'run_length')
 
 
-class ShowSerializer(serializers.ModelSerializer):
+class BookingSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
     theatre = TheatreSerializer()
     movie = MovieSerializer()
 
     class Meta:
-        model = ShowModel
-        fields = ('theatre', 'movie', 'date', 'time')
+        model = BookingShowModel
+        fields = ('user', 'booking_phone_number', 'time', 'date',
+                  'theatre', 'movie', 'expired')
 
+    def create(self, validated_data):
+        movie = validated_data.pop('movie')
+        theatre = validated_data.pop('theatre')
+        userObj = self.context['request'].user
+        
+        movieObj, created = MovieModel.objects.get_or_create(**movie)
 
-class BookingSerializer(models.Model):
-    user = UserSerializer()
-    show = ShowSerializer()
+        theatreObj, created = TheatreModel.objects.get_or_create(**theatre)
 
-    class Meta:
-        model = BookingModel
-        fields = ('user', 'booking_phone_number', 'time',
-                  'updated_time', 'show', 'expired')
+        return BookingShowModel.objects.create(user=userObj, movie=movieObj, theatre=theatreObj, **validated_data)
