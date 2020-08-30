@@ -65,7 +65,8 @@ REST_FRAMEWORK = {
 
 # CronJob
 CRONJOBS = [
-    ('*/10 * * * *', 'booking.cron.mark_expired_ticket') # This cron job will run every 2 mintes after hours
+    ('*/10 * * * *', 'booking.cron.mark_expired_ticket'), # This cron job will run after every 10 mins
+    ('*/30 * * * *', 'booking.cron.delete_expired_ticket') # This cron job will run every 30 mintes after hours
 ]
 
 ROOT_URLCONF = 'bookticket.urls'
