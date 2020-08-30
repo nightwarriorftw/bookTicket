@@ -37,8 +37,8 @@ python manage.py runserver
 ```
 
 ## :beginner: Insights and Workflow
-The client has to create and account using `accounts restapi`. After creating an account, client will get a token which will used for making api calls further.
-CLient can then book a ticket by selection movie and theatre and entering other details. Cron job is setup that marks ticket expires which are booked 8 hours before the current time. Another cron job is setup which will delete all the tickets expired automatically.
+The client has to create and account using `accounts restapi`. After creating an account, client will get a `token` which will used for making api calls further.
+Client can then book a ticket by selection movie and theatre and entering other details. `Cron job` is setup that marks ticket expires which are booked 8 hours before the current time. Another cron job is setup which will delete all the tickets expired automatically.
 
 ### :exclamation: Zomentum
 
