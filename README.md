@@ -9,10 +9,6 @@
   - [Commands](#package-commands)
 - [Development](#wrench-development)
   - [Pre-Requisites and Development Environment](#notebook-pre-requisites)
-- [Community](#cherry_blossom-community)
-  - [Contribution](#fire-contribution)
-  - [Branches](#cactus-branches)
-  - [Guideline](#exclamation-guideline)
 - [Insights and Workflow](#beginner-insights)
 - [Gallery](#camera-gallery)
 - [Credit/Acknowledgment](#star2-creditacknowledgment)
@@ -99,7 +95,7 @@ Pictures of project.
 
 - Cron job for marking expired tickets and deleteing them automatically [Code](https://github.com/nightwarriorftw/bookTicket/blob/master/booking/cron.py)
 
-![SS](cron-job.png)
+![SS](./public/cron-job.png)
 
 ## :star2: Credit/Acknowledgment
 
