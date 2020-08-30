@@ -53,7 +53,7 @@ This project was made for Zomentum hiring challenge 2021 grads
 - Creating and getting list of movies `book/api/v1/movie/` [GET, POST]
 - Particular movie `book/api/v1/movie/<id>` [GET, PUT, PATCH, DELETE]
 - Tickets `book/api/v1/booking/` [GET, POST]
-- Particular ticket `book/api/v1/booking/<id>` [GET, PUT, PATCH]
+- Particular ticket `book/api/v1/booking/<id>` [GET, PUT, PATCH, DELETE]
 - Ticket at a particular time `book/api/v1/tickets` [GET]
 
 
