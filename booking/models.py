@@ -33,11 +33,10 @@ class BookingShowModel(models.Model):
     booking_phone_number = PhoneField(help_text='Booker phone number')
     theatre = models.ForeignKey(TheatreModel, on_delete=models.CASCADE)
     movie = models.ForeignKey(MovieModel, on_delete=models.CASCADE)
-    date = models.DateField()
-    time = models.TimeField()
+    show_date = models.DateField()
+    show_time = models.TimeField()
     expired = models.BooleanField(default=False)
-    issued_date = models.DateField(auto_now_add=True)
-    issued_time = models.TimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
 

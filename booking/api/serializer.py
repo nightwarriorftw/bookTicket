@@ -38,8 +38,8 @@ class BookingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BookingShowModel
-        fields = ('id', 'user', 'booking_phone_number', 'time', 'date',
-                  'theatre', 'movie', 'expired', 'issued_date', 'issued_time')
+        fields = ('id', 'user', 'booking_phone_number', 'show_time', 'show_date',
+                  'theatre', 'movie', 'expired', 'created')
 
     def create(self, validated_data):
         movie = validated_data.pop('movie')

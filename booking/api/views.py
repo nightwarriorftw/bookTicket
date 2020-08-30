@@ -19,12 +19,12 @@ from .serializer import (
 class TheatreViewSets(viewsets.ModelViewSet):
     queryset =  TheatreModel.objects.all()
     serializer_class = TheatreSerializer
-    permission_classes = (permissions.IsAuthenticated,)
+    # permission_classes = (permissions.IsAuthenticated,)
 
 class MovieViewSets(viewsets.ModelViewSet):
     queryset = MovieModel.objects.all()
     serializer_class = MovieSerializer
-    permission_classes = (permissions.IsAuthenticated,)
+    # permission_classes = (permissions.IsAuthenticated,)
 
 class BookingViewSets(viewsets.ModelViewSet):
     queryset = BookingShowModel.objects.all()
@@ -39,6 +39,6 @@ class TicketsListAPI(generics.RetrieveAPIView):
 
     def get_object(self):
         print(self.request.data)
-        obj = get_object_or_404(BookingShowModel, issued_time=self.request.data['issued_time'])
+        obj = get_object_or_404(BookingShowModel, created=self.request.data['created'])
         return obj
 
