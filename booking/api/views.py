@@ -29,7 +29,7 @@ class MovieViewSets(viewsets.ModelViewSet):
 class BookingViewSets(viewsets.ModelViewSet):
     queryset = BookingShowModel.objects.all()
     serializer_class = BookingSerializer
-    permission_classes = (permissions.IsAuthenticated,)
+    # permission_classes = (permissions.IsAuthenticated,)
     throttle_classes = [UserRateThrottle]
 
 
