@@ -19,17 +19,17 @@ from .serializer import (
 class TheatreViewSets(viewsets.ModelViewSet):
     queryset =  TheatreModel.objects.all()
     serializer_class = TheatreSerializer
-    # permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated,)
 
 class MovieViewSets(viewsets.ModelViewSet):
     queryset = MovieModel.objects.all()
     serializer_class = MovieSerializer
-    # permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated,)
 
 class BookingViewSets(viewsets.ModelViewSet):
     queryset = BookingShowModel.objects.all()
     serializer_class = BookingSerializer
-    # permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated,)
     throttle_classes = [UserRateThrottle]
 
 

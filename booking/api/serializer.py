@@ -58,15 +58,13 @@ class BookingSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         instance.booking_phone_number = validated_data.get(
             'booking_phone_number', instance.booking_phone_number)
-        instance.time = validated_data.get('time', instance.time)
-        instance.date = validated_data.get('date', instance.date)
-        instance.issued_date = validated_data.get(
-            'issued_date', instance.issued_date)
-        instance.issued_time = validated_data.get(
-            'issued_time', instance.issued_time)
+        instance.show_time = validated_data.get('show_time', instance.show_time)
+        instance.show_date = validated_data.get('show_date', instance.show_date)
+        instance.created = validated_data.get(
+            'created', instance.created)
         instance.expired = validated_data.get('expired', instance.expired)
 
-        if(validated_data.get('theare')):
+        if(validated_data.get('theatre')):
             try:
                 theatre = TheatreModel.objects.get(
                     id=validated_data.get('theatre')['name'])
